@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+from sys import argv
+
+"""Factorize as many numbers as possible into a product of 2 smaller nums"""
+
+def factory(n):
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            print("{}={}*{}".format(n, int(n//i), i))
+    return None
+
+
+def factors(filename):
+    """read_file and prints them out"""
+
+    with open(filename, encoding="utf-8") as my_file:
+        for i in my_file.readlines():
+            n = int(i)
+            factory(n)
+
+
+if __name__ == "__main__":
+    factors(argv[1])
